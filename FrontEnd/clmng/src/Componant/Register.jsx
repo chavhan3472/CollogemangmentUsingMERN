@@ -20,11 +20,27 @@ function Register() {
     console.log(data);
   };
   let submit_data = () => {
+    if (
+      !data.user_name ||
+      !data.user_email ||
+      !data.user_phno ||
+      !data.user_password ||
+      !data.student_class ||
+      !data.student_rollno ||
+      !data.student_dob ||
+      !data.student_department
+    ) {
+      updmsg("⚠️ All fields are required!");
+      return;
+    }
     axios
       .post("http://localhost:5002/userregis", data)
       .then((res) => {
         if (res.data.msg === "Account Created Sucessfully") {
-          window.alert("User Id Sent TO Your Email");
+          updmsg(res.data.msg + " | Redirecting to Login...");
+          setTimeout(() => {
+            navigate("/login");
+          }, 3000);
           updData({
             user_name: "",
             user_email: "",

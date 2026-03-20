@@ -24,11 +24,6 @@ function AdminDashboard() {
         setStudents(res.data);
         setPendingExams(res.data.filter((s) => s.exam_form === "incomplete"));
       });
-      // Fetch teachers
-      // axios.get("http://localhost:5002/showteachers").then((res) => {
-      //   console.log(res.data.role === "teacher");
-      //   setTeachers(res.data);
-      // });
     }
   }, []);
   let decresult = () => {

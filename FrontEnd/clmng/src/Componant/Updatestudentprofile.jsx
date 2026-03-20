@@ -52,7 +52,6 @@ function Updatestudentprofile() {
     setData({ ...data, subjects: newSubjects });
   };
 
-  // Add Subject
   const addSubject = () => {
     setData({
       ...data,
@@ -70,6 +69,19 @@ function Updatestudentprofile() {
       .post("http://localhost:5002/studentacprofile", data)
       .then(() => {
         alert("Academic Profile Updated ✅");
+        setData({
+          colloge_pin: "",
+          student_name: "",
+          student_rollno: "",
+          semester: "",
+          subjects: [
+            {
+              subject_name: "",
+              mid_sem_marks: "",
+              attendance: "",
+            },
+          ],
+        });
       })
       .catch(() => {
         alert("Error ❌");
@@ -91,24 +103,28 @@ function Updatestudentprofile() {
         name="colloge_pin"
         placeholder="Student ID"
         onChange={handleChange}
+        value={data.colloge_pin}
       />
       <input
         type="text"
         name="student_name"
         placeholder="Student Name"
         onChange={handleChange}
+        value={data.student_name}
       />
       <input
         type="text"
         name="student_rollno"
         placeholder="Roll No"
         onChange={handleChange}
+        value={data.student_rollno}
       />
       <input
         type="text"
         name="semester"
         placeholder="Semester"
         onChange={handleChange}
+        value={data.semester}
       />
 
       <h3>Subjects</h3>

@@ -22,7 +22,7 @@ function Login() {
       console.log(res.data.role);
       obj.updfun(res.data);
       if (res.data.token == undefined) {
-        // navigate("/studentdashbord");
+        window.alert("Please Enter Valid Deatails");
         navigate("/");
         updmsg(res.data.msg);
       } else {
@@ -30,9 +30,6 @@ function Login() {
         obj.updfun(res.data);
         console.log(obj);
         Cookies.set("login_data", JSON.stringify(res.data), { expires: 3 });
-        // res.data.role === "user"
-        //   ? navigate("/studentdashbord")
-        //   : navigate("/admindashboard");
         if (res.data.role === "user") {
           navigate("/studentdashbord");
         } else if (res.data.role === "teacher") {

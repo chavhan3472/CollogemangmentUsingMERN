@@ -8,7 +8,6 @@ function Logout() {
   const obj = useContext(Ct);
 
   useEffect(() => {
-    // Cookies.remove("login_data");
     obj.updfun({
       token: "",
       user_name: "",

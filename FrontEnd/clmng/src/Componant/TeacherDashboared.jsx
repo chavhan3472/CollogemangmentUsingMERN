@@ -1,27 +1,3 @@
-// import React, { useContext, useEffect } from "react";
-// import Ct from "./Context";
-// import { useNavigate } from "react-router-dom";
-// import Cookies from "js-cookie";
-// function TeacherDashboared() {
-//   let obj = useContext(Ct);
-//   //   console.log("This The Object", obj);
-//   let navigate = useNavigate();
-//   useEffect(() => {
-//     let get_cookies = Cookies.get("login_data");
-//     if (!get_cookies) {
-//       navigate("/");
-//     } else {
-//       obj.updfun(JSON.parse(get_cookies));
-//       //   navigate("/teacherdashboard");
-//     }
-//   }, []);
-//   console.log("This The Object", obj);
-//   console.log(obj.state.role, "Htere Is The Role ");
-//   return <div>This The Teacher Dashboard</div>;
-// }
-
-// export default TeacherDashboared;
-
 import React, { useContext, useEffect, useState } from "react";
 import Ct from "./Context";
 import { useNavigate } from "react-router-dom";
