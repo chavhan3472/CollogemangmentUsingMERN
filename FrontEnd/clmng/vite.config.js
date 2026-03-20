@@ -45,35 +45,19 @@
 //     allowedHosts: ["frontend-w1es.onrender.com"], // preview ke liye bhi
 //   },
 // });
-// import { defineConfig } from "vite";
-// import react from "@vitejs/plugin-react";
-
-// export default defineConfig({
-//   plugins: [react()],
-//   server: {
-//     port: process.env.PORT || 5173, // local dev ke liye
-//     host: true,
-//     // allowedHosts remove kar do, dev me local access ke liye enough
-//   },
-//   preview: {
-//     port: process.env.PORT || 4173, // Render dynamic port
-//     strictPort: false, // agar port busy hai toh alternate port use ho
-//     // allowedHosts remove kar do, Render automatically handle karta hai
-//   },
-// });
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
     plugins: [react()],
     server: {
-        port: process.env.PORT || 5173,
+        port: process.env.PORT || 5173, // local dev ke liye
         host: true,
-        allowedHosts: "all",
+        // allowedHosts remove kar do, dev me local access ke liye enough
     },
     preview: {
-        port: process.env.PORT || 4173,
-        strictPort: false,
-        allowedHosts: "all",
+        port: process.env.PORT || 4173, // Render dynamic port
+        strictPort: false, // agar port busy hai toh alternate port use ho
+        // allowedHosts remove kar do, Render automatically handle karta hai
     },
 });
