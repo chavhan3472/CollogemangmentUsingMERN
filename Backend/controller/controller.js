@@ -28,7 +28,7 @@ let student_registartion = async(req, res) => {
             console.log(student_regidata, "This The Student Data");
             console.log(secure_password, "This The Secure Password");
             await student_regidata.save();
-            const transporter = require("nodemailer").createTransport({
+            const transporter = nodemailer.createTransport({
                 service: "gmail",
                 auth: {
                     user: "mernproject601@gmail.com",

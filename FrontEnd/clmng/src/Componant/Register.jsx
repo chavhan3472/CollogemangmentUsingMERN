@@ -37,6 +37,7 @@ function Register() {
       .post("https://collogemangmentusingmern-3.onrender.com/userregis", data)
       .then((res) => {
         if (res.data.msg === "Account Created Sucessfully") {
+          console.log(res.data.msg);
           updmsg(res.data.msg + " | Redirecting to Login...");
           setTimeout(() => {
             navigate("/login");
@@ -55,7 +56,8 @@ function Register() {
           updmsg(res.data.msg);
         }
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("Registration Error:", error);
         updmsg(res.data.msg);
       });
   };
