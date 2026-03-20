@@ -34,7 +34,7 @@ function Register() {
       return;
     }
     axios
-      .post("http://localhost:5002/userregis", data)
+      .post("https://collogemangmentusingmern-3.onrender.com/userregis", data)
       .then((res) => {
         if (res.data.msg === "Account Created Sucessfully") {
           updmsg(res.data.msg + " | Redirecting to Login...");

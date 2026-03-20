@@ -14,7 +14,7 @@ function Allform() {
     } else {
       obj.updfun(JSON.parse(get_cookies));
       axios
-        .get("http://localhost:5002/showadmin")
+        .get("https://collogemangmentusingmern-3.onrender.com/showadmin")
         .then((res) => {
           updData(res.data);
         })

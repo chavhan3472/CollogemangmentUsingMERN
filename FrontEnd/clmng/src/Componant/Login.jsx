@@ -18,30 +18,35 @@ function Login() {
   };
 
   let submit_logininfo = () => {
-    axios.post("http://localhost:5002/userlogin", login_data).then((res) => {
-      console.log(res.data.role);
-      obj.updfun(res.data);
-      if (res.data.token == undefined) {
-        window.alert("Please Enter Valid Deatails");
-        navigate("/");
-        updmsg(res.data.msg);
-      } else {
-        console.log(res.data);
+    axios
+      .post(
+        "https://collogemangmentusingmern-3.onrender.com/userlogin",
+        login_data,
+      )
+      .then((res) => {
+        console.log(res.data.role);
         obj.updfun(res.data);
-        console.log(obj);
-        Cookies.set("login_data", JSON.stringify(res.data), { expires: 3 });
-        if (res.data.role === "user") {
-          navigate("/studentdashbord");
-        } else if (res.data.role === "teacher") {
-          navigate("/teacherdashboard");
-        } else if (res.data.role === "admin") {
-          navigate("/admindashboard");
-        } else {
+        if (res.data.token == undefined) {
+          window.alert("Please Enter Valid Deatails");
           navigate("/");
-          console.error("role not found");
+          updmsg(res.data.msg);
+        } else {
+          console.log(res.data);
+          obj.updfun(res.data);
+          console.log(obj);
+          Cookies.set("login_data", JSON.stringify(res.data), { expires: 3 });
+          if (res.data.role === "user") {
+            navigate("/studentdashbord");
+          } else if (res.data.role === "teacher") {
+            navigate("/teacherdashboard");
+          } else if (res.data.role === "admin") {
+            navigate("/admindashboard");
+          } else {
+            navigate("/");
+            console.error("role not found");
+          }
         }
-      }
-    });
+      });
   };
   return (
     <div className="logimaindiv">

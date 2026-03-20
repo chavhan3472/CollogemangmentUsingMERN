@@ -20,7 +20,9 @@ function Studentdash() {
       const cookieData = JSON.parse(get_cookies);
       obj.updfun(cookieData);
       axios
-        .get(`http://localhost:5002/search/${cookieData.user_id}`)
+        .get(
+          `https://collogemangmentusingmern-3.onrender.com/search/${cookieData.user_id}`,
+        )
         .then((res) => {
           if (res.data.role === "user") {
             setStudent(res.data);

@@ -84,7 +84,10 @@ function AdminDeclareResult() {
     console.log(finalData); // debug
 
     axios
-      .post("http://localhost:5002/admin/finalresult", finalData)
+      .post(
+        "https://collogemangmentusingmern-3.onrender.com/admin/finalresult",
+        finalData,
+      )
       .then((res) => {
         alert("Result declared successfully");
 

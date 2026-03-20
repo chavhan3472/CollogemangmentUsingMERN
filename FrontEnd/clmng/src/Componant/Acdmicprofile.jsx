@@ -23,7 +23,9 @@ function Acdmicprofile() {
     obj.updfun(user);
 
     axios
-      .get(`http://localhost:5002/sendaccprofile/${user.user_id}`)
+      .get(
+        `https://collogemangmentusingmern-3.onrender.com/sendaccprofile/${user.user_id}`,
+      )
       .then((res) => {
         console.log(res.data, "This The Data");
         if (!res.data || res.data.msg) {
