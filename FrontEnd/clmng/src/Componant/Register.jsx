@@ -37,11 +37,10 @@ function Register() {
         withCredentials: true,
       })
       .then((res) => {
+        console.log("RRRR", res);
+
         if (res.data.msg === "Account Created Sucessfully") {
           updmsg(" Registartion Sucessfull| Redirecting to Login...");
-          // setTimeout(() => {
-          //   navigate("/userlogin");
-          // }, 3000);
           updData({
             user_name: "",
             user_email: "",

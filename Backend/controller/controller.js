@@ -7,6 +7,7 @@ const {
 let bcrypt = require("bcrypt");
 let jwt = require("jsonwebtoken");
 let nodemailer = require("nodemailer");
+
 let student_registartion = async (req, res) => {
   // console.log(req.body);
   try {
@@ -28,27 +29,6 @@ let student_registartion = async (req, res) => {
       console.log(student_regidata, "This The Student Data");
       console.log(secure_password, "This The Secure Password");
       await student_regidata.save();
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: "mernproject601@gmail.com",
-          pass: "cqydxbhaafamnqgx",
-        },
-      });
-
-      const mailOptions = {
-        from: "mernproject601@gmail.com",
-        to: req.body.user_email,
-        subject: "Registration Successful",
-        text: `Hello ${req.body.user_name}, Your User ID is ${student_regidata.user_id}`,
-      };
-
-      //   transporter.sendMail(mailOptions, (err, info) => {
-      //     if (err) console.log(err);
-      //     else console.log("Email sent with user_id to student");
-      //   });
-      await transporter.sendMail(mailOptions);
-      console.log("Email sent with user_id to student", "Await Mailer");
       res.json({ msg: "Account Created Successfully" });
     }
   } catch (error) {
