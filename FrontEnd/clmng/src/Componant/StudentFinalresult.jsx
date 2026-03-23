@@ -8,7 +8,6 @@ import Cookies from "js-cookie";
 function StudentFinalResult() {
   let obj = useContext(Ct);
   let navigate = useNavigate();
-
   const [userId, setUserId] = useState("");
   const [result, setResult] = useState(null);
   const [errorMsg, setErrorMsg] = useState("");

@@ -12,7 +12,6 @@ function Login() {
   let [msg, updmsg] = useState("🔐 Login to College Management System");
   let navigate = useNavigate();
   let obj = useContext(Ct);
-  login_data;
   let login_fun = (e) => {
     updLogin_data({ ...login_data, [e.target.name]: e.target.value });
   };
@@ -46,7 +45,8 @@ function Login() {
             console.error("role not found");
           }
         }
-      });
+      })
+      .catch((e) => console.log(e));
   };
   return (
     <div className="logimaindiv">

@@ -31,17 +31,17 @@ function Register() {
       !data.student_department
     ) {
       updmsg("⚠️ All fields are required!");
-      return;
     }
     axios
-      .post("https://collogemangmentusingmern-3.onrender.com/userregis", data)
+      .post("https://collogemangmentusingmern-3.onrender.com/userregis", data, {
+        withCredentials: true,
+      })
       .then((res) => {
         if (res.data.msg === "Account Created Sucessfully") {
-          console.log(res.data.msg);
-          updmsg(res.data.msg + " | Redirecting to Login...");
-          setTimeout(() => {
-            navigate("/login");
-          }, 3000);
+          updmsg(" Registartion Sucessfull| Redirecting to Login...");
+          // setTimeout(() => {
+          //   navigate("/userlogin");
+          // }, 3000);
           updData({
             user_name: "",
             user_email: "",
@@ -57,8 +57,8 @@ function Register() {
         }
       })
       .catch((error) => {
-        console.error("Registration Error:", error);
-        updmsg(res.data.msg);
+        console.error("Registration error:", error);
+        updmsg("❌ Registration Failed. Please try again.");
       });
   };
   return (
