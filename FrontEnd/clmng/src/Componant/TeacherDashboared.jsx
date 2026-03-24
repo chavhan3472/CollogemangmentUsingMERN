@@ -24,7 +24,7 @@ function TeacherDashboared() {
     }
 
     axios
-      .get("https://collogemangmentusingmern-3.onrender.com/showadmin")
+      .get("http://localhost:5002/showadmin")
       .then((res) => {
         const data = res.data;
 

@@ -66,10 +66,7 @@ function Updatestudentprofile() {
   const submitData = () => {
     console.log(data, "This The Final Data");
     axios
-      .post(
-        "https://collogemangmentusingmern-3.onrender.com/studentacprofile",
-        data,
-      )
+      .post("http://localhost:5002/studentacprofile", data)
       .then(() => {
         alert("Academic Profile Updated ✅");
         setData({

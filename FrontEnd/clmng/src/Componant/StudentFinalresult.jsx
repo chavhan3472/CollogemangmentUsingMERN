@@ -25,9 +25,7 @@ function StudentFinalResult() {
     if (!userId) return alert("Enter your User ID / College PIN");
 
     axios
-      .get(
-        `https://collogemangmentusingmern-3.onrender.com/finalresult/${userId}`,
-      )
+      .get(`http://localhost:5002/finalresult/${userId}`)
       .then((res) => {
         setResult(res.data);
         console.log("Fetched Result:", res.data);

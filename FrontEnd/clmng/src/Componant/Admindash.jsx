@@ -20,12 +20,10 @@ function AdminDashboard() {
     } else {
       let user = JSON.parse(cookies);
       obj.updfun(user);
-      axios
-        .get("https://collogemangmentusingmern-3.onrender.com/showadmin")
-        .then((res) => {
-          setStudents(res.data);
-          setPendingExams(res.data.filter((s) => s.exam_form === "incomplete"));
-        });
+      axios.get("http://localhost:5002/showadmin").then((res) => {
+        setStudents(res.data);
+        setPendingExams(res.data.filter((s) => s.exam_form === "incomplete"));
+      });
     }
   }, []);
   let decresult = () => {

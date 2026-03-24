@@ -18,10 +18,7 @@ function Login() {
 
   let submit_logininfo = () => {
     axios
-      .post(
-        "https://collogemangmentusingmern-3.onrender.com/userlogin",
-        login_data,
-      )
+      .post("http://localhost:5002/userlogin", login_data)
       .then((res) => {
         console.log(res.data.role);
         obj.updfun(res.data);

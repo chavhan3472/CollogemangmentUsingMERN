@@ -17,7 +17,7 @@ function PendingForm() {
     } else {
       obj.updfun(JSON.parse(get_cookies));
       axios
-        .get("https://collogemangmentusingmern-3.onrender.com/showadmin")
+        .get("http://localhost:5002/showadmin")
         .then((res) => {
           updData(res.data);
         })

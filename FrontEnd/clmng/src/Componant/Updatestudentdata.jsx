@@ -26,7 +26,7 @@ function Updatestudentdata() {
     }
 
     axios
-      .get("https://collogemangmentusingmern-3.onrender.com/showadmin") // same API
+      .get("http://localhost:5002/showadmin") // same API
       .then((res) => {
         setData(res.data);
       })

@@ -33,7 +33,7 @@ function Register() {
       updmsg("⚠️ All fields are required!");
     }
     axios
-      .post("https://collogemangmentusingmern-3.onrender.com/userregis", data, {
+      .post("http://localhost:5002/userregis", data, {
         withCredentials: true,
       })
       .then((res) => {

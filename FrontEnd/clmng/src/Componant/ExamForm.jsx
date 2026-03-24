@@ -30,10 +30,7 @@ function ExamForm() {
   let submit_examform = () => {
     console.log(updData, "Submit Called");
     axios
-      .post(
-        `https://collogemangmentusingmern-3.onrender.com/examregister/${data.user_id}`,
-        data,
-      )
+      .post(`http://localhost:5002/examregister/${data.user_id}`, data)
       .then((res) => {
         if (res.data.msg === "Exam Form Submited") {
           navigate("/studentdashbord");
